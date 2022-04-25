@@ -1,0 +1,30 @@
+flask run - runs the app
+
+
+Step1: Create the project folder.
+Step2: Git init.
+Step3: Create the app folder
+Step4: Create a virtual environment
+    *Flask Virtual Environment
+	    python3 -m venv --without-pip virtual (virtual is the name of the env)
+    *Activate virtual environment
+        source virtual/bin/activate
+    *Deactivate
+        deactivate
+
+Step5: Add gitignore,run and readme files
+
+Step6: Activate the virtual environment and install Flask (pip3 install flask)
+
+Step7: Create a __init__.py file and initialize the application - Goes into the app folder
+
+        from flask import Flask
+
+        # Initializing application
+        app = Flask(__name__)
+
+        from app import views
+
+Step8: Create a templates(Where all the html files will go) and static(All CSS and JS   files go in here) folder in the app folder.
+
+Step9: Still in the app folder create a views.py, config.py and error.py files
