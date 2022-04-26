@@ -1,0 +1,36 @@
+.container{
+    padding: 1vh;
+    background-color: black;
+}
+
+.title-heading{
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+}
+
+.link-text{
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    padding: 0.5vh;
+    margin-top: 1vh;
+}
+
+.link-text:hover{
+    color: white;
+    font-size: larger;
+}
+
+li{
+    list-style: none;
+}
+
+.movie-card{
+    padding: 2vh;
+}
+
+.movie-img{
+    height: 5vh !important;
+    width: 4vw !important;
+}
