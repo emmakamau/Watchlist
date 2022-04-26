@@ -12,6 +12,16 @@
 
 {% endmacro %}
 
+<!-- Displaying reviews macro -->
+{% macro displayReviews(review_list) %}
+    {% for review in review_list %}
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
+        <h2> {{ review.title}} </h2>
+        <p> {{ review.review | truncate(30) }}</p>
+    </div>
+    {% endfor %}
+{% endmacro %}
+
 <!-- 
     The truncate filter shortens a variable size according to the characters we add to its parameters.
 
