@@ -3,32 +3,46 @@
 
 <!-- Styles block -->
 {% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 <!-- Content block -->
 
 <!-- Content block -->
 {% block content %}
-    <div class="container">
-        <!-- Popular movie -->
-        <h3 class="title-heading"> Popular Movies</h3>
-        <div class="row">
-            <div class="col-3">{{ macro.displayMovieList(popular)}}</div>
-        </div>
-
-        <!-- Upcoming movie  -->
-        <h3 class="title-heading"> Upcoming Movies </h3>
-        <div class="row">
-            <div class="col-3">
-                {{ macro.displayMovieList(upcoming)}}
+<div class="container">
+    <!-- Search form -->
+    <div class="search">
+        <form>
+            <div class="row g-3 align-items-center">
+                <div class="col-8">
+                    <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
+                </div>
+                <div class="col-2">
+                    <input type="submit" value="Submit" class="btn btn-default">
+                </div>
             </div>
-        </div>
-            
-        <!-- Now showing movie -->
-        <h3 class="title-heading">Now Showing</h3>
-        <div class="row">
-            <div class="col-3">{{ macro.displayMovieList(now_showing)}}</div>
+        </form>
+    </div>
+
+    <!-- Popular movie -->
+    <h3 class="title-heading"> Popular Movies</h3>
+    <div class="row">
+        <div class="col-3">{{ macro.displayMovieList(popular)}}</div>
+    </div>
+
+    <!-- Upcoming movie  -->
+    <h3 class="title-heading"> Upcoming Movies </h3>
+    <div class="row">
+        <div class="col-3">
+            {{ macro.displayMovieList(upcoming)}}
         </div>
     </div>
+
+    <!-- Now showing movie -->
+    <h3 class="title-heading">Now Showing</h3>
+    <div class="row">
+        <div class="col-3">{{ macro.displayMovieList(now_showing)}}</div>
+    </div>
+</div>
 {% endblock%}

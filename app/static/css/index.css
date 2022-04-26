@@ -34,3 +34,7 @@ li{
     height: 5vh !important;
     width: 4vw !important;
 }
+
+.search{
+    padding: 2vh 6vw;
+}
