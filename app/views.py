@@ -21,7 +21,7 @@ def index(): #view function
    title = 'Home - Welcome to The best Movie Review Website Online'
    return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_showing = now_showing_movie )
 
-@app.route('/movie/<int:movie_id>')
+@app.route('/movie/<int:id>')
 def movie(id):
 
    movie = get_movie(id)
