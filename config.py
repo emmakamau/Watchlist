@@ -9,6 +9,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     #this is the location of the database with authentication.
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:GenZ|0420@localhost/watchlist'
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
     pass
 
 class ProdConfig(Config):
