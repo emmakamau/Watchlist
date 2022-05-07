@@ -1,4 +1,4 @@
 watchlistenv/
 *.pyc
 instance/
-start.sh
+run.sh
