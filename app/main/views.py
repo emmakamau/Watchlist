@@ -2,12 +2,13 @@
    1. We import the render_template() function from Flask. This function takes in the name of a template file as the first argument. It then automatically searches for the template file in our app/templates/ sub directory and loads it.
 """
 
-from flask import render_template,request,redirect,url_for
+from flask import render_template,request,redirect,url_for,abort
 from . import main
 from ..request import get_movies,get_movie,search_movie
-from .forms import ReviewForm
-from ..models import Review
+from .forms import *
+from ..models import *
 from flask_login import login_required
+from .. import db
 
 # Views
 @main.route('/')  #route decorator
@@ -66,3 +67,30 @@ def new_review(id):
     title = f'{movie.title} review'
     return render_template('new_review.html',title = title, review_form=form, movie=movie)
 
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)
+
+@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@login_required
+def update_profile(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+
+    form = UpdateProfile()
+
+    if form.validate_on_submit():
+        user.bio = form.bio.data
+
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.profile',uname=user.username))
+
+    return render_template('profile/update.html',form =form)
