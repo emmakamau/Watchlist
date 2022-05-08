@@ -7,8 +7,6 @@ class Config:
     MOVIE_API_BASE_URL ='https://api.themoviedb.org/3/movie/{}?api_key={}'
     MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    #this is the location of the database with authentication.
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:GenZ|0420@localhost/watchlist'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
     #  email configurations
@@ -18,6 +16,10 @@ class Config:
     MAIL_USERNAME = "emmaculatewkamau@gmail.com"
     MAIL_PASSWORD = "ldltffcnozvkgqri"
 
+    pass
+
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:GenZ|0420@localhost/watchlist_test'
     pass
 
 class ProdConfig(Config):
@@ -36,9 +38,11 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:GenZ|0420@localhost/watchlist'
     DEBUG = True
 
 config_options = {
 'development':DevConfig,
-'production':ProdConfig
+'production':ProdConfig,
+'test':TestConfig
 }

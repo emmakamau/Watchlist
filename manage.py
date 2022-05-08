@@ -5,6 +5,7 @@ from app.models import *
 
 # Creating app instance
 app = create_app('development')
+app = create_app('test')
 
 manager = Manager(app)
 manager.add_command('server',Server)
@@ -22,8 +23,6 @@ def test():
 @manager.shell
 def make_shell_context():
     return dict(app = app,db = db,User = User,Role = Role )
-if __name__ == '__main__':
-    manager.run()
 
 if __name__ == '__main__':
     manager.run()
