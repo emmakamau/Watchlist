@@ -18,7 +18,7 @@ class Config:
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = "emmaculatewkamau@gmail.com"
-    MAIL_PASSWORD = "ldltffcnozvkgqri"
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
     pass
 
@@ -33,7 +33,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
+    #SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
     pass
 
 class DevConfig(Config):
